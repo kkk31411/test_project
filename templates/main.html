@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>반도체 분야 취업을 위한 chat-취피티</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* base */
+    *{box-sizing:border-box}
+    body{font-family:Arial,system-ui,sans-serif;margin:0;padding:0;min-height:100vh;
+         background:linear-gradient(135deg,#667eea 0%,#764ba2 100%)}
+    /* header */
+    .header{background:linear-gradient(45deg,#1e3c72 0%,#2a5298 100%);color:#fff;text-align:center;
+            padding:30px 20px;box-shadow:0 4px 8px rgba(0,0,0,.2);margin-bottom:20px}
+    .header h1{margin:0;font-weight:700;text-shadow:2px 2px 4px rgba(0,0,0,.3);
+               font-size:clamp(1.4rem,4.5vw,2.5rem)}
+    .header .subtitle{margin:10px 0 0;font-size:clamp(.95rem,2.5vw,1.2rem);opacity:.9}
+    /* layout */
+    .container{width:92%;max-width:1200px;margin:0 auto;background:#fff;border-radius:10px;
+               box-shadow:0 8px 16px rgba(0,0,0,.1);display:flex;gap:0;min-height:600px}
+    .left-panel{flex:1;padding:20px;background:linear-gradient(135deg,#f8f9fa 0%,#e9ecef 100%);
+                border-radius:10px 0 0 10px;border-right:2px solid #dee2e6}
+    .right-panel{flex:1;padding:20px;background:#fff;border-radius:0 10px 10px 0}
+    .panel-title{font-weight:700;margin-bottom:20px;text-align:center;padding:15px;color:#fff;
+                 background:linear-gradient(45deg,#667eea 0%,#764ba2 100%);border-radius:8px;
+                 box-shadow:0 2px 4px rgba(0,0,0,.1);font-size:clamp(1rem,2.8vw,1.3rem)}
+    /* form elements */
+    table{width:100%;border-collapse:collapse;margin-top:10px}
+    table th{background:linear-gradient(45deg,#495057 0%,#6c757d 100%);color:#fff;padding:12px;text-align:center;font-weight:700}
+    table td{padding:10px;background:#f8f9fa}
+    table input,table select,table textarea{width:100%;padding:8px;border:1px solid #dee2e6;border-radius:4px;font-size:14px}
+    table input:focus,table select:focus,table textarea:focus{outline:0;border-color:#667eea;box-shadow:0 0 5px rgba(102,126,234,.3)}
+    .form-group{margin-bottom:15px}
+    .form-group label{display:block;margin-bottom:5px;font-weight:700;color:#495057}
+    .checkbox-group{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+    .checkbox-item{display:flex;align-items:center}
+    .checkbox-item input{width:auto;margin-right:6px}
+    .submit-btn{background:linear-gradient(45deg,#28a745 0%,#20c997 100%);color:#fff;padding:12px 25px;border:0;border-radius:25px;
+                font-size:16px;font-weight:700;cursor:pointer;width:100%;margin-top:15px;box-shadow:0 4px 8px rgba(0,0,0,.2)}
+    .submit-btn:hover{transform:translateY(-2px);box-shadow:0 6px 12px rgba(0,0,0,.3)}
+    /* responsive */
+    @media (max-width:960px){
+      .container{flex-direction:column}
+      .left-panel{border-radius:10px 10px 0 0;border-right:0;border-bottom:2px solid #dee2e6}
+      .right-panel{border-radius:0 0 10px 10px}
+    }
+    @media (max-width:520px){
+      .checkbox-group{grid-template-columns:1fr}
+    }
+    /* right panel table → stack on small screens */
+    @media (max-width:640px){
+      .right-panel table, .right-panel tbody, .right-panel tr, .right-panel td, .right-panel th{display:block;width:100%}
+      .right-panel tr{margin-bottom:12px;border:1px solid #e9ecef;border-radius:8px;overflow:hidden}
+      .right-panel th{padding:10px;text-align:left}
+      .right-panel td{padding:10px;text-align:left !important;background:#fff;border-top:1px solid #f1f3f5}
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>💻 반도체 분야 취업을 위한 chat-취피티 🚀</h1>
+    <div class="subtitle">성공적인 취뽀를 위한 맞춤형 뉴스레터</div>
+  </div>
+
+  <div class="container">
+    <!-- 왼쪽 패널 -->
+    <div class="left-panel">
+      <div class="panel-title">🏢 기업 정보 검색</div>
+      <form action="/company_search" method="post">
+        <div class="form-group">
+          <label>📦 회사 유형 (복수 선택):</label>
+          <div class="checkbox-group">
+            <label class="checkbox-item"><input type="checkbox" name="categories" value="Fabless"> Fabless</label>
+            <label class="checkbox-item"><input type="checkbox" name="categories" value="Design house"> Design house</label>
+            <label class="checkbox-item"><input type="checkbox" name="categories" value="CAD"> CAD</label>
+            <label class="checkbox-item"><input type="checkbox" name="categories" value="Foundry"> Foundry</label>
+            <label class="checkbox-item"><input type="checkbox" name="categories" value="Integrated Device Manufacturer"> IDM</label>
+            <label class="checkbox-item"><input type="checkbox" name="categories" value="SW"> SW</label>
+            <label class="checkbox-item"><input type="checkbox" name="categories" value="기계제조및센서"> 기계제조및센서</label>
+            <label class="checkbox-item"><input type="checkbox" name="categories" value="반도체 유통"> 반도체 유통</label>
+            <label class="checkbox-item"><input type="checkbox" name="categories" value="부품제조"> 부품제조</label>
+            <label class="checkbox-item"><input type="checkbox" name="categories" value="제조업"> 제조업</label>
+            <label class="checkbox-item"><input type="checkbox" name="categories" value="해외기업 지사"> 해외기업 지사</label>
+            <label class="checkbox-item"><input type="checkbox" name="categories" value="해외기업 지사(유통)"> 해외기업 지사(유통)</label>
+            <label class="checkbox-item"><input type="checkbox" name="categories" value="해외기업(중국,유통)"> 해외기업(중국,유통)</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="per_category">🔢 표시 개수 (카테고리당):</label>
+          <input type="number" id="per_category" name="per_category" min="1" max="200" value="5">
+        </div>
+
+        <div class="form-group">
+          <label>🗺️ 지역 필터 (구글 Address에서 판정):</label>
+          <div class="checkbox-group">
+            <label class="checkbox-item"><input type="checkbox" name="regions" value="서울"> 서울</label>
+            <label class="checkbox-item"><input type="checkbox" name="regions" value="경기"> 경기</label>
+            <label class="checkbox-item"><input type="checkbox" name="regions" value="인천"> 인천</label>
+            <label class="checkbox-item"><input type="checkbox" name="regions" value="부산"> 부산</label>
+            <label class="checkbox-item"><input type="checkbox" name="regions" value="대구"> 대구</label>
+            <label class="checkbox-item"><input type="checkbox" name="regions" value="대전"> 대전</label>
+            <label class="checkbox-item"><input type="checkbox" name="regions" value="광주"> 광주</label>
+            <label class="checkbox-item"><input type="checkbox" name="regions" value="울산"> 울산</label>
+            <label class="checkbox-item"><input type="checkbox" name="regions" value="충북"> 충북</label>
+            <label class="checkbox-item"><input type="checkbox" name="regions" value="충남"> 충남</label>
+            <label class="checkbox-item"><input type="checkbox" name="regions" value="해외"> 해외</label>
+          </div>
+          <div style="color:#6c757d;font-size:13px;margin-top:6px">
+            * theise.org 표에는 지역 정보가 없어 회사명을 구글에서 조회해 Address 텍스트로 판정합니다.
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="recipient_email">📧 결과를 받을 이메일:</label>
+          <input type="email" id="recipient_email" name="recipient_email" placeholder="예: example@naver.com" required>
+        </div>
+
+        <div class="form-group">
+          <label><input type="checkbox" name="only_foreign_branch" value="Y"> 외국계 지사(한국)만 보기</label>
+          <div style="color:#6c757d;font-size:13px;margin-top:4px">
+            * 회사명이 ‘…코리아 / …Korea / 한국…’ 이고 주소가 한국으로 판정된 경우만 포함
+          </div>
+        </div>
+
+        <button type="submit" class="submit-btn">🔍 기업정보 검색</button>
+      </form>
+    </div>
+
+    <!-- 오른쪽 패널 -->
+    <div class="right-panel">
+      <div class="panel-title"><i class="fas fa-edit"></i> 뉴스레터 구독 신청</div>
+
+      {% if error %}
+      <div style="background:#ffebee;color:#c62828;padding:10px;margin:10px;border:1px solid #ef5350;border-radius:5px">
+        ❌ {{ error }}
+      </div>
+      {% endif %}
+
+      <form action="/" method="post">
+        <table>
+          <tr><th colspan="2"><i class="fas fa-user"></i> Step1: 사용자 이름 입력</th></tr>
+          <tr>
+            <td style="text-align:right;width:30%"><i class="fas fa-id-card"></i> 사용자 이름:</td>
+            <td><input type="text" name="user_id" placeholder="사용자 이름을 입력하세요" required></td>
+          </tr>
+          <tr><th colspan="2"><i class="fas fa-envelope"></i> Step2: 뉴스레터를 받을 주소를 입력</th></tr>
+          <tr>
+            <td style="text-align:right"><i class="fas fa-at"></i> 메일 주소:</td>
+            <td><input type="text" name="email" placeholder="메일 주소를 입력해주세요" required></td>
+          </tr>
+          <tr><th colspan="2"><i class="fas fa-industry"></i> Step3: 관심 산업군과 직무를 입력</th></tr>
+          <tr>
+            <td style="text-align:right"><i class="fas fa-building"></i> 관심 산업군:</td>
+            <td>
+              <select name="industry">
+                <option value="">선택하세요</option>
+                <option value="IT">디스플레이</option>
+                <option value="제조업">반도체 공정</option>
+                <option value="금융">반도체 설비</option>
+                <option value="교육">교육</option>
+                <option value="서비스">서비스업</option>
+                <option value="건설">건설/부동산</option>
+                <option value="유통">유통/소매</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:right"><i class="fas fa-briefcase"></i> 관심 직무:</td>
+            <td>
+              <select name="job_function">
+                <option value="">선택하세요</option>
+                <option value="반도체설계">반도체 설계</option>
+                <option value="공정엔지니어">공정 엔지니어</option>
+                <option value="품질관리">품질 관리</option>
+                <option value="장비엔지니어">장비 엔지니어</option>
+                <option value="개발">개발/프로그래밍</option>
+                <option value="기획">기획/전략</option>
+                <option value="마케팅">마케팅/홍보</option>
+                <option value="영업">영업/고객관리</option>
+                <option value="디자인">디자인</option>
+                <option value="인사">인사/총무</option>
+                <option value="회계">회계/재무</option>
+                <option value="연구">연구/분석</option>
+              </select>
+            </td>
+          </tr>
+          <tr><th colspan="2"><i class="fas fa-comment"></i> Step4: 적고 싶은 말</th></tr>
+          <tr><td colspan="2"><textarea name="message" placeholder="적고 싶은 말을 입력하세요" style="height:80px"></textarea></td></tr>
+        </table>
+        <div style="text-align:center;margin-top:20px">
+          <input type="submit" value="📤 제출하기"
+                 style="background:linear-gradient(45deg,#667eea 0%,#764ba2 100%);color:#fff;padding:12px 30px;border:0;border-radius:25px;font-size:16px;font-weight:700;cursor:pointer;margin:5px;box-shadow:0 4px 8px rgba(0,0,0,.2)">
+          <input type="reset" value="🔄 초기화"
+                 style="background:linear-gradient(45deg,#ffeaa7 0%,#fab1a0 100%);color:#2d3

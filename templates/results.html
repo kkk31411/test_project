@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <title>검색 결과</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    *{box-sizing:border-box}
+    body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:#f1f5f9}
+    .wrap{width:92%;max-width:1200px;margin:20px auto;background:#fff;padding:18px;border-radius:16px;border:1px solid #e5e7eb;
+          box-shadow:0 4px 8px rgba(0,0,0,.05)}
+    h1{margin:0 0 12px;font-size:clamp(1.2rem,2.5vw,1.6rem)}
+    .filters{margin:6px 0 16px;color:#475569;font-size:.95em}
+    .pill{display:inline-block;border:1px solid #e5e7eb;border-radius:999px;padding:4px 10px;margin:2px 6px 2px 0;background:#f8fafc;font-size:.9em}
+    .table-container{width:100%;overflow-x:auto}
+    table{width:100%;border-collapse:collapse;min-width:720px}
+    th,td{border-bottom:1px solid #e5e7eb;text-align:left;padding:10px;vertical-align:top}
+    th{background:linear-gradient(45deg,#495057 0%,#6c757d 100%);color:#fff;font-weight:700;white-space:nowrap}
+    td{background:#f8f9fa}
+    a{color:#2563eb;text-decoration:none}
+    a:hover{text-decoration:underline}
+    .back{display:inline-block;margin-top:16px;color:#667eea;font-weight:700;text-decoration:none}
+    .back:hover{text-decoration:underline}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>🔎 기업정보 검색 결과</h1>
+    <div class="filters">
+      <span class="pill">회사 유형: {{ filters.categories|join(', ') }}</span>
+      <span class="pill">카테고리당: {{ filters.per_category }}개</span>
+      <span class="pill">지역: {{ filters.regions|join(', ') }}</span>
+      <span class="pill">외국계 지사만: {{ filters.only_branch }}</span>
+    </div>
+
+    {% if rows and rows|length>0 %}
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              {% for col in columns %}
+                <th>{{ col }}</th>
+              {% endfor %}
+            </tr>
+          </thead>
+          <tbody>
+            {% for r in rows %}
+              <tr>
+                {% for col in columns %}
+                  {% if col == '링크' and r[col] %}
+                    <td><a href="{{ r[col] }}" target="_blank" rel="noopener">바로가기</a></td>
+                  {% else %}
+                    <td>{{ r[col] }}</td>
+                  {% endif %}
+                {% endfor %}
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      <p style="color:#475569;margin-top:10px">총 {{ rows|length }}개 결과</p>
+    {% else %}
+      <p>조건에 해당하는 결과가 없습니다. 유형/지역 조건을 조정해보세요.</p>
+    {% endif %}
+
+    <a href="{{ url_for('home') }}" class="back">← 돌아가기</a>
+  </div>
+</body>
+</html>
